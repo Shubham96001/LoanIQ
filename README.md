@@ -10,13 +10,13 @@ LoanIQ is a smart, multi-agent AI system designed to speed up and standardize ba
 
 🛠️ How It Works (The Core System)
 Instead of using a basic step-by-step automation script, LoanIQ uses an Agentic Framework (built with LangGraph). Think of it as a digital team of specialized AI agents working together:
-📄 Document Agent: Automatically reads digital files and images (handles both English and Hindi). It extracts income, assets, and liabilities, and checks if documents are genuine.
-📊 Risk Agent: Automatically calculates critical banking risk metrics (like DSCR and FOIR) and groups applications into low, medium, or high-risk categories.
-⚖️ Compliance Agent: Instantly checks the application against banking rules and guidelines. Best part? Rules are stored in easy-to-edit YAML files, meaning compliance updates take 90 seconds without changing code.
-🤖 Decision Agent (Explainable AI): Creates a full recommendation report. Unlike "black box" AI, this agent gives clear, written reasons for approving or rejecting a file.
-🧑‍✈️ Human-in-the-Loop: The AI does the heavy lifting, summaries, and calculations, but the final judgment and legal accountability always belong to the human Bank Manager.
+- 📄 Document Agent: Automatically reads digital files and images (handles both English and Hindi). It extracts income, assets, and liabilities, and checks if documents are genuine.
+- 📊 Risk Agent: Automatically calculates critical banking risk metrics (like DSCR and FOIR) and groups applications into low, medium, or high-risk categories.
+- ⚖️ Compliance Agent: Instantly checks the application against banking rules and guidelines. Best part? Rules are stored in easy-to-edit YAML files, meaning compliance updates take 90 seconds without changing code.
+- 🤖 Decision Agent (Explainable AI): Creates a full recommendation report. Unlike "black box" AI, this agent gives clear, written reasons for approving or rejecting a file.
+- 🧑‍✈️ Human-in-the-Loop: The AI does the heavy lifting, summaries, and calculations, but the final judgment and legal accountability always belong to the human Bank Manager.
 
 🗺️ Project Roadmap
-Phase 1 (V1 MVP): Set up a safe "shadow mode" using standard digital PDFs (English/Hindi data extraction).
-Phase 2 (V2 Expansion): Integrate live APIs for GST/UPI data and add Google Document AI to process handwritten applications.
-Phase 3 (V3 Scale): Scale to underserved rural markets by adding support for regional languages (Tamil, Telugu, Marathi).
+- Phase 1 : Set up a safe "shadow mode" using standard digital PDFs (English/Hindi data extraction).
+- Phase 2 : Integrate live APIs for GST/UPI data and add Google Document AI to process handwritten applications.
+- Phase 3 : Scale to underserved rural markets by adding support for regional languages (Tamil, Telugu, Marathi).
