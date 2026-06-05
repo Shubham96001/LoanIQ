@@ -1,0 +1,120 @@
+version: "1.0"
+jurisdiction: "India"
+regulator: "RBI"
+last_updated: "2026-04-12"
+rules:
+  - id: KYC_001
+    name: "PAN Card Verification"
+    description: "Applicant must have a valid PAN card on file"
+    field: "pan_number"
+    condition: "not_null"
+    severity: "blocking"
+    reference: "RBI Master Circular - KYC Norms 2023"
+
+  - id: KYC_002
+    name: "Aadhaar Linkage"
+    description: "Applicant Aadhaar must be linked with bank account"
+    field: "aadhaar_linked"
+    condition: "equals"
+    value: true
+    severity: "blocking"
+    reference: "PMLA Amendment 2023"
+
+  - id: KYC_003
+    name: "Address Proof Required"
+    description: "At least one valid address proof document required"
+    field: "address_proof"
+    condition: "not_null"
+    severity: "blocking"
+    reference: "RBI KYC Directions 2016 - Section 3.2"
+
+  - id: FOIR_001
+    name: "Fixed Obligation to Income Ratio"
+    description: "Total EMI obligations should not exceed 50% of net monthly income"
+    field: "foir"
+    condition: "less_than_or_equal"
+    value: 0.50
+    severity: "blocking"
+    reference: "RBI Lending Norms - Retail 2022"
+
+  - id: FOIR_002
+    name: "Enhanced FOIR for High Income"
+    description: "For income above Rs. 1 lakh/month, FOIR can go up to 60%"
+    field: "foir"
+    condition: "less_than_or_equal"
+    value: 0.60
+    severity: "advisory"
+    income_threshold: 100000
+    reference: "RBI Circular RBI/2022-23/117"
+
+  - id: AML_001
+    name: "AML Watchlist Check"
+    description: "Applicant must not appear on PMLA/FinCEN/OFAC watchlists"
+    field: "aml_clear"
+    condition: "equals"
+    value: true
+    severity: "blocking"
+    reference: "Prevention of Money Laundering Act 2002"
+
+  - id: CIBIL_001
+    name: "Minimum Credit Score"
+    description: "CIBIL score must be at least 650 for loan eligibility"
+    field: "credit_score"
+    condition: "greater_than_or_equal"
+    value: 650
+    severity: "blocking"
+    reference: "RBI Fair Practice Code - Credit Risk"
+
+  - id: CIBIL_002
+    name: "Preferred Credit Score"
+    description: "CIBIL score of 750+ qualifies for preferential interest rates"
+    field: "credit_score"
+    condition: "greater_than_or_equal"
+    value: 750
+    severity: "advisory"
+    reference: "RBI Priority Lending Framework"
+
+  - id: DSCR_001
+    name: "Debt Service Coverage Ratio"
+    description: "DSCR must be at least 1.25 to demonstrate repayment capacity"
+    field: "dscr"
+    condition: "greater_than_or_equal"
+    value: 1.25
+    severity: "blocking"
+    reference: "RBI Master Circular - Income Recognition 2023"
+
+  - id: AGE_001
+    name: "Minimum Applicant Age"
+    description: "Applicant must be at least 21 years old at loan origination"
+    field: "age"
+    condition: "greater_than_or_equal"
+    value: 21
+    severity: "blocking"
+    reference: "RBI Consumer Protection Guidelines"
+
+  - id: AGE_002
+    name: "Maximum Applicant Age at Maturity"
+    description: "Loan must mature before applicant turns 65 years old"
+    field: "age_at_maturity"
+    condition: "less_than_or_equal"
+    value: 65
+    severity: "blocking"
+    reference: "RBI Consumer Protection Guidelines"
+
+  - id: EMP_001
+    name: "Minimum Employment Tenure"
+    description: "Salaried applicants must have minimum 1 year continuous employment"
+    field: "employment_months"
+    condition: "greater_than_or_equal"
+    value: 12
+    severity: "blocking"
+    reference: "RBI Lending Norms - Employment Stability"
+
+  - id: DPDP_001
+    name: "Data Processing Consent"
+    description: "Applicant must have provided explicit consent for data processing per DPDP Act 2023"
+    field: "dpdp_consent"
+    condition: "equals"
+    value: true
+    severity: "blocking"
+    reference: "Digital Personal Data Protection Act 2023 - Section 6"
