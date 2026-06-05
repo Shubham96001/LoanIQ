@@ -1,0 +1,30 @@
+# ==========================================
+# LoanIQ GitIgnore Configuration
+# ==========================================
+
+# 1. Python Environment & Dependency Packages
+venv/
+ENV/
+env/
+.venv/
+pyvenv.cfg
+
+# 2. Python Compile Caches
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 3. Sensitive Data & Local Document Test Paths
+test_docs/
+test_inputs/
+*.pdf
+*.png
+*.jpg
+*.jpeg
+
+# 4. IDE and Editor Settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
